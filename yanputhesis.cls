@@ -48,7 +48,7 @@
 %%-----------------------------------------------------------------------------%
 \RequirePackage{geometry}                                   % 纸张尺寸及页边距
 \geometry{a4paper,                                          % A4 纸张
-    left=2.5cm, right=2.5cm, top=2.54cm, bottom=2.54cm}     % 页边距
+    left=2.5cm, right=2.5cm, top=2.54cm, bottom=3.0cm}     % 页边距
 %%-----------------------------------------------------------------------------%
 \RequirePackage[                                            % 超链接设置
     unicode=true,                                           % 允许 Unicode
@@ -144,32 +144,34 @@
 \RequirePackage{titletoc}                                   % 目录格式
 \setcounter{secnumdepth}{3}                                 % 标题计数器深度
 \setcounter{tocdepth}{2}                                    % 目录中标题深度
-\titleformat{\chapter}[hang]{\fHei\sSanhao\filcenter  %
-    }{第\,\thechapter\,章\hspace{-1em}}{20pt}{      %
+\titleformat{\chapter}[hang]{\fHei\sSanhao\filcenter        %
+    }{第\,\thechapter\,章\ \ \ }{0pt}{                      %
     \sSanhao}                                               %
-\titleformat{\section}[hang]{\fHei\sSihao}{              %
+\titleformat{\section}[hang]{\fHei\sSihao}{                 %
     \fHei\sSihao\thesection}{0.5em}{}{}                     %
-\titleformat{\subsection}[hang]{\fHei\sHgXiaosi}{        %
+\titleformat{\subsection}[hang]{\fHei\sHgXiaosi}{           %
     \sHgXiaosi\thesubsection}{0.5em}{}{}                    %
-\titleformat{\subsubsection}[hang]{\fHei}{               % 小标题: (4) 标题
+\titleformat{\subsubsection}[hang]{\fHei}{                  % 小标题: (4) 标题
     (\arabic{subsubsection})}{0.5em}{}{}                    %
-\titlespacing{\chapter}{0pt}{-16pt}{11pt}                    % 缩小标题之间缩进
+\titlespacing{\chapter}{0pt}{-16pt}{11pt}                   % 缩小标题之间缩进
 \titlespacing{\section}{0pt}{7pt}{0em}                      %
 \titlespacing{\subsection}{0pt}{6.5pt}{0em}                 %
 \titlespacing{\subsubsection}{0pt}{0.25em}{0pt}             %
-\dottedcontents{section}[1.5cm]{}{1.8em}{3pt}              % 定义目录中各级标题
-\dottedcontents{subsection}[2.7cm]{}{2.7em}{3pt}           % 之间的格式以及缩进
-\dottedcontents{subsubsection}[4.5cm]{}{3.4em}{3pt}        %
+\dottedcontents{section}[1.5cm]{}{1.8em}{3pt}               % 定义目录中各级标题
+\dottedcontents{subsection}[2.7cm]{}{2.7em}{3pt}            % 之间的格式以及缩进
+\dottedcontents{subsubsection}[4.5cm]{}{3.4em}{3pt}         %
 \titlecontents{chapter}[0pt]{\fSong\sLgXiaosi\vspace{       %
     0.5em}}{\contentsmargin{0pt}\fSong\makebox[0pt][l]{第\thecontentslabel 章}\hspace{4em}}{\contentsmargin{      %
-    0pt}\fSong}{\titlerule*[.25pc]{.}\contentspage}[         %
+    0pt}\fSong}{\titlerule*[.25pc]{.}\contentspage}[        %
     \vspace{0em}]                                           %
 %%-----------------------------------------------------------------------------%
 \RequirePackage{fancyhdr}                                   % 页眉设置
 \RequirePackage{fancyref}                                   %
 \addtolength{\topmargin}{0.19cm}                            % 打印裁剪余量
+
+\setlength{\footskip}{1cm}                                  % 脚注位置调整
 \newcommand{\npu@headrule}{                                 %
-    \rlap{\rule[.7\baselineskip]{\headwidth}{3pt}}        %
+    \rlap{\rule[.7\baselineskip]{\headwidth}{3pt}}          %
     \vspace{-1.07\baselineskip}                             %
     \rule[.5\baselineskip]{\headwidth}{0.6pt}               %
     \vspace{-.8\baselineskip}                               %
@@ -179,7 +181,7 @@
     \npu@headrule                                           %
 }                                                           %
 \renewcommand{\chaptermark}[1]{                             % 章节页眉设置
-    \markboth{第\thechapter 章~~ #1}{}}                          %
+    \markboth{第\thechapter 章~~~  #1}{}}                   %
 \pagestyle{fancyplain}                                      % 新增版式 fancyplain
 \fancyhf{}                                                  % 清空原有页眉页脚
 \fancyfoot[C, C]{\sWuhao{\thepage}}                         % 页脚中央显示页码
@@ -450,10 +452,10 @@
     \renewcommand{\nwpu@chs@advisor}{#1}                    %
     \renewcommand{\nwpu@eng@advisor}{#2}                    %
 }            
-\newcommand{\advisoralign}[2]{                                   % 设置导师对齐
-    \renewcommand{\nwpu@chs@advisoralign}{#1}                    %
-    \renewcommand{\nwpu@eng@advisoralign}{#2}                    %
-}                                                         %
+\newcommand{\advisoralign}[2]{                              % 设置导师对齐
+    \renewcommand{\nwpu@chs@advisoralign}{#1}               %
+    \renewcommand{\nwpu@eng@advisoralign}{#2}               %
+}                                                           %
 \newcommand{\funding}[2]{                                   % 设置基金资助
     \renewcommand{\nwpu@chs@funding}{#1}                    %
     \renewcommand{\nwpu@eng@funding}{#2}                    %
@@ -475,9 +477,9 @@
     \begin{center}                                          %
         \hfill \fHei \sWuhao                                %
         \begin{minipage}{\coverpage@infowidth}              % 排版基本信息表
-            \vspace{-.3cm}                                   %
+            \vspace{-.3cm}                                  %
             \renewcommand\arraystretch{1.2}                 %
-            \linespread{1.4}
+            \linespread{1.4}                                %
             \begin{tabular}{|c|c|}\hline                    %
                 {学 \hfill 校 \hfill 代 \hfill 码} & 10699     \\ \hline
                 {分   \hfill    类    \hfill   号} & TP316.9   \\ \hline
@@ -485,37 +487,37 @@
                 {学           \hfill           号} & \ \ \nwpu@uid \ \  \\ \hline
              \end{tabular}                                  %
         \end{minipage} \par                                 % 排版结束
-        \vspace{9.3cm} \fHei \sErhao                         %
-        \begin{minipage}[t]{2.3cm}                            % 排版标题
-            \hfill \  {\bfseries \sErhao 题目} \\              %
+        \vspace{9.3cm} \fHei \sErhao                        %
+        \begin{minipage}[t]{2.3cm}                          % 排版标题
+            \hfill \  {\bfseries \sErhao 题目} \\           %
         \end{minipage}                                      %
         \setbox123=\hbox{                                   %
-            \begin{minipage}[t]{12.2cm}                      %
-                \begin{center}
-                    \begin{spacing}{1.6}
-                        \fHei \sErhao
-                        \nwpu@chs@title 
-                    \end{spacing}
-                \end{center} %
+            \begin{minipage}[t]{12.2cm}                     %
+                \begin{center}                              %
+                    \begin{spacing}{1.6}                    %
+                        \fHei \sErhao                       %
+                        \nwpu@chs@title                     %
+                    \end{spacing}                           %
+                \end{center}                                %
             \end{minipage}                                  %
         }                                                   %
         \setbox124=\hbox{                                   %
-            \begin{minipage}[t]{12.2cm}                       %
+            \begin{minipage}[t]{12.2cm}                     %
                 \begin{center}                              %
-                    \begin{spacing}{1.6}
-                        \fHei \sErhao
-                        \uline{\hfill\quad\hfill} \\            %
-                        \uline{\hfill\quad\hfill} \\            %
-                    \end{spacing}
-                    % \uline{\hfill\quad\hfill} \\            %
-                    % \vspace{+.32cm}
-                    % \uline{\hfill\quad\hfill} \\            %
+                    \begin{spacing}{1.6}                    %
+                        \fHei \sErhao                       %
+                        \uline{\hfill\quad\hfill} \\        %
+                        \uline{\hfill\quad\hfill} \\        %
+                    \end{spacing}                           %
+                    % \uline{\hfill\quad\hfill} \\          %
+                    % \vspace{+.32cm}                       %
+                    % \uline{\hfill\quad\hfill} \\          %
                 \end{center}                                %
             \end{minipage}                                  %
         }                                                   %
         \hspace{-0.5cm}                                     %
-        \copy123\kern-\wd123\box124 \fSong \sSanhao \par     % 排版结束
-        \vspace{0.15cm}                             % => 3 * 24pt * 1.25
+        \copy123\kern-\wd123\box124 \fSong \sSanhao \par    % 排版结束
+        \vspace{0.15cm}                                     % => 3 * 24pt * 1.25
         \begin{minipage}{5cm}                               % 排版具体信息
             {作者} \uline{\hfill \nwpu@chs@author \hfill}   %
         \end{minipage} \par                                 %
@@ -611,7 +613,7 @@
 \begin{titlepage}                                           %
     \linespread{1.2} \fEng \sXiaosan \par                   % 1.2 倍行距
     \vspace{1\baselineskip}                                 % => 1 * 22pt * 1.2
-    \begin{center}
+    \begin{center}                                          %
         \fEng \sErhao
         \ \\
         \ \\
@@ -663,18 +665,18 @@
 %%-----------------------------------------------------------------------------%
 \newenvironment{abstract}{                                  %
     \sDefault                                               %
-    \chapter[摘{\quad}要]{\vspace{+13pt}摘{\quad}要}                      %
-    \markboth{摘{\quad}要}{摘{\quad}要}                     %
+    \chapter[摘{\quad}要]{\vspace{+13pt}摘{\quad}要}         %
+    \markboth{摘{\quad}要}{摘{\quad}要}                      %
 }{\vfill\sWuhao \noindent \nwpu@chs@funding \par \cleardoublepage}
 \newenvironment{keywords}{                                  %
     \vspace{2\baselineskip} \par                            %
-    \fHei 关键词：\fSong}{}                     %
+    \fHei 关键词：\fSong}{}                                  %
 %%-----------------------------------------------------------------------------%
 %% 英文摘要及关键词
 %%-----------------------------------------------------------------------------%
 \newenvironment{engabstract}{                               %
     \sDefault                                               %
-    \chapter[ABSTRACT]{\vspace{+13pt}\textbf{Abstract}}                   %
+    \chapter[ABSTRACT]{\vspace{+13pt}\textbf{Abstract}}     %
     \markboth{Abstract}{ABSTRACT}                           %
 }{\vfill\sWuhao \noindent \nwpu@eng@funding \par \cleardoublepage}        %
 \newenvironment{engkeywords}{                               %
